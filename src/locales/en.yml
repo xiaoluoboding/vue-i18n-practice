@@ -1,2 +1,4 @@
 common:
   home: Home
+button:
+  toggle-language: Toggle Language

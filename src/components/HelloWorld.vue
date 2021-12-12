@@ -1,7 +1,7 @@
 <template>
   <h1>{{ $t('common.home') }}</h1>
 
-  <button type="button" @click="toggleLocales">Toggle Language</button>
+  <button type="button" @click="toggleLocales">{{ $t('button.toggle-language') }}</button>
 </template>
 
 <script setup lang="ts">

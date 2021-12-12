@@ -1,2 +1,4 @@
 common:
   home: 主页
+button:
+  toggle-language: 切换语言
