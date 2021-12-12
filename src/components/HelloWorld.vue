@@ -1,5 +1,7 @@
 <template>
   <h1>{{ $t('common.home') }}</h1>
+  
+  <p>{{ $t('header.title') }}</p>
 
   <button type="button" @click="toggleLocales">{{ $t('button.toggle-language') }}</button>
 </template>
