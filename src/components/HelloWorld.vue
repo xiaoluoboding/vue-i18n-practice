@@ -6,12 +6,18 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useLocalStorage } from '@vueuse/core'
 
 const { availableLocales, locale } = useI18n()
+const setLang = (lang: string) => {
+  const storage = useLocalStorage('site_locale', '')
+  storage.value = lang
+}
 
 const toggleLocales = () => {
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
+  setLang(locale.value)
 }
 </script>
 

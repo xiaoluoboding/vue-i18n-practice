@@ -1,5 +1,9 @@
 import { App } from 'vue'
 import { createI18n } from 'vue-i18n'
+import { useLocalStorage } from '@vueuse/core'
+
+const storage = useLocalStorage('site_locale', 'en')
+const locale = storage.value
 
 const localPathPrefix = '../locales/'
 
@@ -17,7 +21,7 @@ const messages = Object.fromEntries(
 const install = (app: App) => {
   const i18n = createI18n({
     legacy: false,
-    locale: 'en',
+    locale,
     globalInjection: true,
     messages,
   })
