@@ -3,12 +3,17 @@
   
   <p>{{ $t('header.title') }}</p>
 
+  <p>{{ $t('message.hello', { msg }) }}</p>
+
   <button type="button" @click="toggleLocales">{{ $t('button.toggle-language') }}</button>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocalStorage } from '@vueuse/core'
+
+const msg = ref('')
 
 const { availableLocales, locale } = useI18n()
 const setLang = (lang: string) => {
@@ -20,6 +25,11 @@ const toggleLocales = () => {
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
   setLang(locale.value)
+  if (locale.value === 'en') {
+    msg.value = 'Hello'
+  } else {
+    msg.value = '你好'
+  }
 }
 </script>
 

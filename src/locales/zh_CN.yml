@@ -6,3 +6,5 @@ button:
   toggle-language: 切换语言
 header:
   title: '@:common.app@:common.name'
+message:
+  hello: '{msg}世界'
